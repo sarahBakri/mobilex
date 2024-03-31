@@ -1,0 +1,101 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": ["tsconfig.json"],
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended",
+		"airbnb",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:import/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended"
+	],
+	"ignorePatterns": [".js", ".svg"],
+	"rules": {
+		"@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+		"@typescript-eslint/naming-convention": [
+			"warn",
+			{
+				"selector": "typeLike",
+				"format": ["StrictPascalCase"]
+			},
+			{
+				"selector": ["variableLike"],
+				"format": ["strictCamelCase"]
+			},
+			{
+				"selector": "variable",
+				"types": ["boolean"],
+				"format": ["StrictPascalCase"],
+				"prefix": ["is", "are", "should", "has", "can", "did", "will"]
+			},
+			{
+				"selector": "variable",
+				"modifiers": ["global", "const"],
+				"format": ["UPPER_CASE", "StrictPascalCase"]
+			},
+			{
+				"selector": "variable",
+				"modifiers": ["global", "const"],
+				"types": ["function"],
+				"format": ["StrictPascalCase", "strictCamelCase"]
+			},
+			{
+				"selector": "interface",
+				"format": ["PascalCase"],
+				"custom": {
+					"regex": "^I(?!.Interface$).$",
+					"match": true
+				}
+			}
+		],
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"camelcase": "off",
+		"import/extensions": "off",
+		"import/named": "off",
+		"import/namespace": ["error", { "allowComputed": true }],
+		"import/prefer-default-export": "off",
+		"linebreak-style": "off",
+		"no-empty": ["error", { "allowEmptyCatch": true }],
+		"no-nested-ternary": "error",
+		"no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+		"no-shadow": "off",
+		"no-use-before-define": "off",
+		"no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+		"padding-line-between-statements": [
+			"error",
+			{ "blankLine": "always", "prev": "*", "next": ["block-like", "return"] },
+			{ "blankLine": "always", "prev": ["case"], "next": "*" }
+		],
+		"prettier/prettier": ["error"],
+		"react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+		"react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
+		"react/jsx-no-bind": "error",
+		"react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+		"react/jsx-pascal-case": "error",
+		"react/jsx-props-no-spreading": "off",
+		"react/no-children-prop": "error",
+		"react/no-danger-with-children": "error",
+		"react/require-default-props": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx", ".svg"]
+			}
+		}
+	}
+}
