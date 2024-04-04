@@ -20,15 +20,15 @@ const App = (): JSX.Element => {
 			element: <Layout />,
 			children: [
 				{
-					path: '/',
+					path: '/mobilex',
 					element: <Home />,
 				},
 				{
-					path: '/products/:category',
+					path: '/mobilex/products/:category',
 					element: <Products />,
 				},
 				{
-					path: '/product/:id',
+					path: '/mobilex/product/:id',
 					element: <ProductItem />,
 				},
 			],
