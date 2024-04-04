@@ -25,27 +25,27 @@ const AppBar = (): JSX.Element => {
 	const menuOptions = [
 		{
 			title: 'جميع المنتجات',
-			target: '/products/all',
+			target: '/mobilex/products/all',
 		},
 		{
 			title: 'اكسسوارات',
-			target: '/products/accessories',
+			target: '/mobilex/products/accessories',
 		},
 		{
 			title: 'الكاميرات والتصوير الفوتوغرافي',
-			target: '/products/cameras',
+			target: '/mobilex/products/cameras',
 		},
 		{
 			title: 'أجهزة الكمبيوتر',
-			target: '/products/computers',
+			target: '/mobilex/products/computers',
 		},
 		{
 			title: 'الهواتف المحمولة',
-			target: '/products/all',
+			target: '/mobilex/products/all',
 		},
 		{
 			title: 'وصل حديثًا',
-			target: '/products/newArrival',
+			target: '/mobilex/products/newArrival',
 		},
 	];
 
@@ -68,7 +68,7 @@ const AppBar = (): JSX.Element => {
 						<Button
 							className={classes.link}
 							onClick={() => {
-								navigate('/');
+								navigate('/mobilex');
 							}}
 						>
 							الرئيسيه

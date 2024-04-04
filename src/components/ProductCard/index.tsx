@@ -65,7 +65,7 @@ const ProductCard = (): JSX.Element => {
 				paddingY={2}
 				className={classes.cardContainer}
 				onClick={() => {
-					navigate('/product/1');
+					navigate('/mobilex/product/1');
 				}}
 			>
 				<div className={`${classes.textTruncate} ${classes.productName}`}>Galaxy Tab S3 9.7 Wifi Tablet (Black)</div>
