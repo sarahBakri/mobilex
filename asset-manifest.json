@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/mobilex/static/css/main.ae499ce4.css",
+    "main.js": "/mobilex/static/js/main.018a0c2b.js",
+    "static/js/453.56de4b47.chunk.js": "/mobilex/static/js/453.56de4b47.chunk.js",
+    "static/media/JannaLTBold.ttf": "/mobilex/static/media/JannaLTBold.979ee04b81699aaf4cf6.ttf",
+    "static/media/SEC4.png": "/mobilex/static/media/SEC4.db8e8e0976f0ac2652b7.png",
+    "static/media/cover3.jpg": "/mobilex/static/media/cover3.6905ad197658f2cfed24.jpg",
+    "static/media/cover__2.jpg": "/mobilex/static/media/cover__2.e3f0accfe43dfdc4d44e.jpg",
+    "static/media/sec3.jpg": "/mobilex/static/media/sec3.ad4f892415f7b57400f2.jpg",
+    "static/media/logo3.png": "/mobilex/static/media/logo3.132be696e80903fe641b.png",
+    "static/media/sec1.jpg": "/mobilex/static/media/sec1.a316f16c64f0ef0be87a.jpg",
+    "static/media/sec2.jpg": "/mobilex/static/media/sec2.ad0e789e1e2a126318c0.jpg",
+    "static/media/product1_img1.jpg": "/mobilex/static/media/product1_img1.3d12a731255809f36ead.jpg",
+    "static/media/product1_img2.jpg": "/mobilex/static/media/product1_img2.b0bdcdde9e34eac5dff9.jpg",
+    "static/media/product1_img4.jpg": "/mobilex/static/media/product1_img4.8c00afc942a90a4eea5e.jpg",
+    "static/media/product1_img3.jpg": "/mobilex/static/media/product1_img3.6490006cdd287754d9c3.jpg",
+    "index.html": "/mobilex/index.html",
+    "main.ae499ce4.css.map": "/mobilex/static/css/main.ae499ce4.css.map",
+    "main.018a0c2b.js.map": "/mobilex/static/js/main.018a0c2b.js.map",
+    "453.56de4b47.chunk.js.map": "/mobilex/static/js/453.56de4b47.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae499ce4.css",
+    "static/js/main.018a0c2b.js"
+  ]
+}
