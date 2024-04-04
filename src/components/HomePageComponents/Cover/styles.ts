@@ -1,11 +1,11 @@
 import { Theme } from '@mui/material';
 import { keyframes } from '@emotion/react';
 import { makeStyles } from '../../../makeStyles';
-import cover from '../../../assets/cover.jpg';
+import cover from '../../../assets/cover3.jpg';
 
 const coverAnnimation = keyframes`
-    0% { background-position: 100% 100% }
-	100% { background-position: 0 0 }
+    0% { background-position: 0% 0% }
+	100% { background-position: 100% 100% }
 `;
 
 const useStyles = makeStyles()((theme: Theme) => {
@@ -17,8 +17,22 @@ const useStyles = makeStyles()((theme: Theme) => {
 		coverTitle: {
 			position: 'absolute',
 			top: '30%',
-			left: '10%',
+			right: '10%',
 			width: '400px',
+		},
+		title: {
+			fontSize: '60px',
+			color: 'white',
+			fontWeight: '600',
+			fontFamily: 'Janna',
+		},
+		subTitle: {
+			fontSize: '20PX',
+			color: '#485ad7',
+			fontWeight: '600',
+			fontFamily: 'Janna',
+			// textAlign: 'center',
+			// color: '#485ad7',
 		},
 		cover: {
 			backgroundImage: `url(${cover})`,
@@ -30,13 +44,15 @@ const useStyles = makeStyles()((theme: Theme) => {
 			animation: `${coverAnnimation} 5s both`,
 		},
 		discoverButton: {
-			backgroundColor: '#8696a0',
-			borderRadius: '0px',
+			backgroundColor: '#485ad7',
+			// borderRadius: '0px',
 			color: 'white',
 			padding: '20px 28px',
 			fontWeight: 'bold',
+			fontFamily: 'Janna',
+			fontSize: '18px',
 			'&:hover': {
-				backgroundColor: '#000',
+				backgroundColor: '#1B172F',
 			},
 		},
 	};

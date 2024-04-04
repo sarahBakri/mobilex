@@ -21,14 +21,18 @@ const useStyles = makeStyles()((theme: Theme) => {
 			zIndex: '100',
 			backgroundColor: '#fff',
 		},
+		endIcon: {
+			paddingInlineStart: '10px',
+		},
 		link: {
 			textDecoration: 'none',
-			color: '#000',
+			color: '#3c3c5b',
 			textTransform: 'uppercase',
 			position: 'relative',
 			fontWeight: '600',
 			padding: '0px',
 			minWidth: 'unset',
+			fontSize: '16px',
 			'&::after': {
 				content: '""',
 				position: 'absolute',
@@ -37,7 +41,7 @@ const useStyles = makeStyles()((theme: Theme) => {
 				height: '2px',
 				bottom: '-3px',
 				left: '0',
-				backgroundColor: '#000',
+				backgroundColor: '#4759D7',
 				transformOrigin: 'bottom right',
 				transition: 'transform 0.25s ease-out',
 			},
@@ -50,8 +54,8 @@ const useStyles = makeStyles()((theme: Theme) => {
 			},
 		},
 		menuItem: {
-			maxWidth: '140px',
-			whiteSpace: 'unset',
+			// maxWidth: '140px',
+			// whiteSpace: 'unset',
 		},
 	};
 });

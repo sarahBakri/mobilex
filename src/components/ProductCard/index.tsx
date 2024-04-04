@@ -1,26 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import {
-	Grid,
-	IconButton,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogContentText,
-	DialogTitle,
-	Button,
-} from '@mui/material';
+import { Grid, IconButton, Dialog, DialogContent, Button } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// import Dialog from '@mui/material/Dialog';
-// import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
-// import DialogTitle from '@mui/material/DialogTitle';
 import React from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import useStyles from './styles';
 import WhiteHeart from '../../assets/heartWhite.png';
 import product1 from '../../assets/product1_img1.jpg';
+import product2 from '../../assets/product1_img2.jpg';
+import product3 from '../../assets/product1_img3.jpg';
+import product4 from '../../assets/product1_img4.jpg';
+import ProductImages from '../ProductImages';
 
 const ProductCard = (): JSX.Element => {
 	const { classes } = useStyles();
@@ -33,6 +24,7 @@ const ProductCard = (): JSX.Element => {
 	const handleClose = (): void => {
 		setOpen(false);
 	};
+	const navigate = useNavigate();
 
 	return (
 		<Grid container alignItems="center" position="relative" boxShadow={1}>
@@ -50,7 +42,7 @@ const ProductCard = (): JSX.Element => {
 			</Grid>
 			<Grid item container className={classes.cardContentWraper} position="relative">
 				<img src={product1} alt="productName" className={classes.img} />
-				<Grid container position="absolute" bottom={0}>
+				<Grid container position="absolute" bottom={0} zIndex={20}>
 					<Grid item container justifyContent="center" gap={2}>
 						<IconButton className="iconButton" onClick={handleClickOpen}>
 							<VisibilityIcon htmlColor="white" />
@@ -66,7 +58,16 @@ const ProductCard = (): JSX.Element => {
 					</Grid>
 				</Grid>
 			</Grid>
-			<Grid item container justifyContent="center" paddingY={2}>
+			<Grid
+				item
+				container
+				justifyContent="center"
+				paddingY={2}
+				className={classes.cardContainer}
+				onClick={() => {
+					navigate('/product/1');
+				}}
+			>
 				<div className={`${classes.textTruncate} ${classes.productName}`}>Galaxy Tab S3 9.7 Wifi Tablet (Black)</div>
 				<Grid item container justifyContent="center" alignItems="center">
 					<div className={`${classes.price} ${classes.afterDicount}`}>$80</div>
@@ -75,24 +76,64 @@ const ProductCard = (): JSX.Element => {
 			</Grid>
 
 			<Dialog
+				dir="rtl"
 				open={isOpen}
 				onClose={handleClose}
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description"
+				maxWidth="md"
 			>
-				<DialogTitle id="alert-dialog-title">Use Google location service?</DialogTitle>
 				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						Let Google help apps determine location. This means sending anonymous location data to Google, even when no
-						apps are running.
-					</DialogContentText>
+					<Grid container>
+						<Grid item xs={5}>
+							<ProductImages productId="3" images={[product1, product2, product3, product4]} />
+						</Grid>
+						<Grid item xs={6.5} paddingX={4}>
+							<Grid container>
+								<div className={classNames(classes.label, { [`${classes.inStock}`]: true })}>In Stock</div>
+							</Grid>
+							<Grid container paddingY={2}>
+								<div className={classes.productNameQuickView}>S2 Smartwatch Silver</div>
+							</Grid>
+							<Grid container paddingBottom={2}>
+								<div
+									className={classNames(classes.priceQuickView, { [`${classes.priceAfterDiscountQuickView}`]: true })}
+								>
+									$200.00
+								</div>
+								<div className={classes.beforeDiscountQuickView}>$250.00</div>
+								<div className={`${classes.beforeDiscountQuickView} ${classes.discountValueQuickView}`}>
+									Save 11% OFF
+								</div>
+							</Grid>
+							<Grid container paddingY={2}>
+								<div className={`${classes.description}`}>
+									It is clear that our way of life must be as comfortable as possible Many of our clients were surprised
+									by the incredible assortment of products in our store. You know, we have m...
+								</div>
+							</Grid>
+							<Grid container paddingY={4}>
+								<Grid item xs={12}>
+									<Button className={`${classes.button}`}>
+										<Grid item container justifyContent="center">
+											<WhatsAppIcon />
+
+											<Grid item paddingX={1}>
+												{' '}
+												Order on WhatsApp
+											</Grid>
+										</Grid>
+									</Button>
+								</Grid>
+								<Grid item xs={12} paddingY={3}>
+									<Button variant="text" fullWidth className={classes.textButton}>
+										view full info
+									</Button>
+								</Grid>
+							</Grid>
+						</Grid>
+					</Grid>
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose}>Disagree</Button>
-					<Button onClick={handleClose} autoFocus>
-						Agree
-					</Button>
-				</DialogActions>
 			</Dialog>
 		</Grid>
 	);

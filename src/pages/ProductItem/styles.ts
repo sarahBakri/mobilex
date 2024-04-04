@@ -133,6 +133,11 @@ const useStyles = makeStyles()(() => {
 			color: '#485ad7',
 			fontWeight: 'bold',
 		},
+		pageContainer: {
+			width: '80%',
+			margin: '60px auto',
+			maxWidth: '1200px',
+		},
 	};
 });
 export default useStyles;

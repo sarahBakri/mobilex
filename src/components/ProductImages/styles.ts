@@ -1,9 +1,10 @@
 import { makeStyles } from '../../makeStyles';
 
-const useStyles = makeStyles()(() => {
+const useStyles = makeStyles()((theme) => {
 	return {
-		discount: {
-			backgroundColor: '#ea3253',
+		currentImage: { width: '100%', maxHeight: '355px', objectFit: 'contain' },
+		arrowButton: {
+			boxShadow: theme.shadows[3],
 		},
 	};
 });

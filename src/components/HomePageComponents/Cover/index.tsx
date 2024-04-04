@@ -10,13 +10,13 @@ const Cover = (): JSX.Element => {
 		<Grid container className={classes.coverContainer}>
 			<Grid className={classes.cover} />
 			<Grid item className={classes.coverTitle}>
-				<Typography variant="h6" paddingY={2} textTransform="uppercase">
-					New Collection
+				<Typography variant="h6" paddingY={2} textTransform="uppercase" className={classes.subTitle}>
+					مجموعة جديدة
 				</Typography>
-				<Typography variant="h2" paddingBottom={2}>
-					Discover top rated items
+				<Typography variant="h2" paddingBottom={2} className={classes.title}>
+					اكتشف العناصر الأعلى تقييمًا
 				</Typography>
-				<Button className={classes.discoverButton}>Discover now</Button>
+				<Button className={classes.discoverButton}>اكتشف الان</Button>
 			</Grid>
 		</Grid>
 	);

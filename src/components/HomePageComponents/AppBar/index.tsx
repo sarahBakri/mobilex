@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Button, Grid, IconButton, Menu, MenuItem } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Logo from '../../Logo';
@@ -11,7 +11,7 @@ import useStyles from './styles';
 
 const AppBar = (): JSX.Element => {
 	const { classes } = useStyles();
-
+	const navigate = useNavigate();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const isOpen = Boolean(anchorEl);
 
@@ -24,28 +24,28 @@ const AppBar = (): JSX.Element => {
 	};
 	const menuOptions = [
 		{
-			title: 'All',
-			target: '',
+			title: 'جميع المنتجات',
+			target: '/products/all',
 		},
 		{
-			title: 'Accessories',
-			target: '',
+			title: 'اكسسوارات',
+			target: '/products/accessories',
 		},
 		{
-			title: 'Cameras & Photography',
-			target: '',
+			title: 'الكاميرات والتصوير الفوتوغرافي',
+			target: '/products/cameras',
 		},
 		{
-			title: 'Laptops & computers',
-			target: '',
+			title: 'أجهزة الكمبيوتر',
+			target: '/products/computers',
 		},
 		{
-			title: 'Mobiles',
-			target: '',
+			title: 'الهواتف المحمولة',
+			target: '/products/all',
 		},
 		{
-			title: 'New Arrival',
-			target: '',
+			title: 'وصل حديثًا',
+			target: '/products/newArrival',
 		},
 	];
 
@@ -65,20 +65,30 @@ const AppBar = (): JSX.Element => {
 				</Grid>
 				<Grid item xs={3}>
 					<Grid container justifyContent="center" alignItems="center" gap={2} style={{ height: '100%' }}>
-						<Button className={classes.link}>Home</Button>
+						<Button
+							className={classes.link}
+							onClick={() => {
+								navigate('/');
+							}}
+						>
+							الرئيسيه
+						</Button>
 						<Button
 							className={classes.link}
 							aria-controls={isOpen ? 'basic-menu' : undefined}
 							aria-haspopup="true"
 							aria-expanded={isOpen ? 'true' : undefined}
 							onClick={handleClick}
-							endIcon={isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+							classes={{ endIcon: classes.endIcon }}
+							endIcon={
+								isOpen ? <KeyboardArrowUpIcon htmlColor="#4759D7" /> : <KeyboardArrowDownIcon htmlColor="#4759D7" />
+							}
 							// onMouseLeave={handleClose}
 						>
-							Collections
+							المجموعات
 						</Button>
 
-						<Button className={classes.link}>About us</Button>
+						<Button className={classes.link}>معلومات عنا</Button>
 					</Grid>
 				</Grid>
 				<Grid item xs={2}>
@@ -93,6 +103,7 @@ const AppBar = (): JSX.Element => {
 				</Grid>
 			</Grid>
 			<Menu
+				dir="rtl"
 				id="basic-menu"
 				anchorEl={anchorEl}
 				open={isOpen}
@@ -100,12 +111,28 @@ const AppBar = (): JSX.Element => {
 				MenuListProps={{
 					'aria-labelledby': 'basic-button',
 				}}
+				anchorOrigin={{
+					vertical: 'bottom',
+					horizontal: 'center',
+				}}
+				transformOrigin={{
+					vertical: 'top',
+					horizontal: 'center',
+				}}
+
 				// classes={{
 				// 	paper: classes.menuPaper,
 				// }}
 			>
 				{menuOptions.map((option) => (
-					<MenuItem key={option.title} onClick={handleClose} className={classes.menuItem}>
+					<MenuItem
+						key={option.title}
+						onClick={() => {
+							handleClose();
+							navigate(option.target);
+						}}
+						className={classes.menuItem}
+					>
 						{option.title}
 					</MenuItem>
 				))}
