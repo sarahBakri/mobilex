@@ -30,10 +30,10 @@ const ProductItem = (): JSX.Element => {
 	return (
 		<Grid container padding={4} className={classes.pageContainer}>
 			<Grid container>
-				<Grid item xs={5}>
+				<Grid item md={5} gap={4}>
 					<ProductImages productId="3" images={[product1, product2, product3, product4]} />
 				</Grid>
-				<Grid item xs={6.5} paddingX={4}>
+				<Grid item md={6.5}>
 					<Grid container>
 						<div className={classNames(classes.label, { [`${classes.inStock}`]: true })}>In Stock</div>
 					</Grid>
@@ -75,19 +75,19 @@ const ProductItem = (): JSX.Element => {
 				</Grid>
 			</Grid>
 			<Grid container justifyContent="space-between">
-				<Grid item container paddingTop={7} paddingBottom={3} xs={12} justifyContent="CENTER">
+				<Grid item container padding={3} xs={12} justifyContent="CENTER">
 					<Typography variant="h4">الاكثر مبيعا</Typography>
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
 				</Grid>
 			</Grid>

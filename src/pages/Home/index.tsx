@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
-import AppBar from '../../components/HomePageComponents/AppBar';
 import Cover from '../../components/HomePageComponents/Cover';
 import useStyles from './styles';
 import Content from '../../components/HomePageComponents/Content';

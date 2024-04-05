@@ -1,3 +1,4 @@
+import { Theme } from '@mui/material';
 import { keyframes } from '@emotion/react';
 import { makeStyles } from '../../makeStyles';
 
@@ -5,7 +6,7 @@ const HeaderAnnimation = keyframes`
     0% { transform: translate3d(0, -50%, 0);}
 	100% { transform: none; }
 `;
-const useStyles = makeStyles()(() => {
+const useStyles = makeStyles()((theme: Theme) => {
 	return {
 		label: {
 			width: '40px',
@@ -135,8 +136,12 @@ const useStyles = makeStyles()(() => {
 		},
 		pageContainer: {
 			width: '80%',
-			margin: '60px auto',
+			margin: '100px auto',
 			maxWidth: '1200px',
+			minWidth: '350px',
+			[theme.breakpoints.down('md')]: {
+				margin: '40px auto',
+			},
 		},
 	};
 });

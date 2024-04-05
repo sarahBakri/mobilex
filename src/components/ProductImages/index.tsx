@@ -26,7 +26,7 @@ const ProductImages = ({ images, productId }: { images: string[]; productId: str
 							setCurrentImageIndex((currentImageIndex - 1) % images.length);
 						}}
 					>
-						<KeyboardArrowLeftIcon htmlColor={currentImageIndex === 0 ? '#aaa' : '#000'} />
+						<KeyboardArrowRightIcon htmlColor={currentImageIndex === 0 ? '#aaa' : '#000'} />
 					</IconButton>
 					<IconButton
 						// className={classes.arrowButton}
@@ -34,7 +34,7 @@ const ProductImages = ({ images, productId }: { images: string[]; productId: str
 							setCurrentImageIndex((currentImageIndex + 1) % images.length);
 						}}
 					>
-						<KeyboardArrowRightIcon htmlColor="#000" />
+						<KeyboardArrowLeftIcon htmlColor="#000" />
 					</IconButton>
 				</Grid>
 			</Grid>

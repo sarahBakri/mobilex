@@ -60,15 +60,22 @@ const useStyles = makeStyles()((theme: Theme) => {
 		},
 		coverTitle: {
 			position: 'absolute',
-			top: '30%',
+			top: '25%',
 			right: '10%',
 			width: '400px',
+			[theme.breakpoints.down('md')]: {
+				// top: '20%',
+				width: '300px',
+			},
 		},
 		title: {
 			fontSize: '60px',
 			color: 'white',
 			fontWeight: '600',
 			fontFamily: 'Janna',
+			[theme.breakpoints.down('md')]: {
+				fontSize: '40px',
+			},
 		},
 		subTitle: {
 			fontSize: '20PX',
@@ -83,9 +90,24 @@ const useStyles = makeStyles()((theme: Theme) => {
 			height: '600px',
 			width: '100%',
 			backgroundRepeat: 'no-repeat',
-			backgroundPosition: 'center',
+			backgroundPosition: 'bottom',
 			backgroundSize: 'cover',
+			backgroundColor: '#1A1C29',
+			[theme.breakpoints.down('md')]: {
+				backgroundSize: 'contain',
+			},
 		},
+		productsSecTitle: {
+			color: '#485ad7',
+		},
+		// cover: {
+		// 	backgroundImage: `url(${cover})`,
+		// 	height: '600px',
+		// 	width: '100%',
+		// 	backgroundRepeat: 'no-repeat',
+		// 	backgroundPosition: 'center',
+		// 	backgroundSize: 'cover',
+		// },
 	};
 });
 export default useStyles;

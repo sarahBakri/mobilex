@@ -57,6 +57,14 @@ const useStyles = makeStyles()((theme: Theme) => {
 			// maxWidth: '140px',
 			// whiteSpace: 'unset',
 		},
+		accordionRoot: {
+			width: '100%',
+			boxShadow: 'unset',
+			margin: '0px',
+		},
+		accordionSummaryRoot: {
+			margin: '0px !important',
+		},
 	};
 });
 export default useStyles;

@@ -84,11 +84,11 @@ const ProductCard = (): JSX.Element => {
 				maxWidth="md"
 			>
 				<DialogContent>
-					<Grid container>
-						<Grid item xs={5}>
+					<Grid container gap={4}>
+						<Grid item md={5}>
 							<ProductImages productId="3" images={[product1, product2, product3, product4]} />
 						</Grid>
-						<Grid item xs={6.5} paddingX={4}>
+						<Grid item md={6.5}>
 							<Grid container>
 								<div className={classNames(classes.label, { [`${classes.inStock}`]: true })}>In Stock</div>
 							</Grid>
@@ -120,14 +120,14 @@ const ProductCard = (): JSX.Element => {
 
 											<Grid item paddingX={1}>
 												{' '}
-												Order on WhatsApp
+												طلب عبر الواتساب
 											</Grid>
 										</Grid>
 									</Button>
 								</Grid>
 								<Grid item xs={12} paddingY={3}>
 									<Button variant="text" fullWidth className={classes.textButton}>
-										view full info
+										عرض المعلومات الكاملة
 									</Button>
 								</Grid>
 							</Grid>

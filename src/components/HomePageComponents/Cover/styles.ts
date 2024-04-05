@@ -7,6 +7,10 @@ const coverAnnimation = keyframes`
     0% { background-position: 0% 0% }
 	100% { background-position: 100% 100% }
 `;
+const coverAnnimationMD = keyframes`
+0% { background-position: 0% 0% }
+100% { background-position: 80% 80% }
+`;
 
 const useStyles = makeStyles()((theme: Theme) => {
 	return {
@@ -19,12 +23,18 @@ const useStyles = makeStyles()((theme: Theme) => {
 			top: '30%',
 			right: '10%',
 			width: '400px',
+			[theme.breakpoints.down('md')]: {
+				top: '10%',
+			},
 		},
 		title: {
 			fontSize: '60px',
 			color: 'white',
 			fontWeight: '600',
 			fontFamily: 'Janna',
+			[theme.breakpoints.down('md')]: {
+				fontSize: '50px',
+			},
 		},
 		subTitle: {
 			fontSize: '20PX',
@@ -42,6 +52,12 @@ const useStyles = makeStyles()((theme: Theme) => {
 			backgroundPosition: 'center',
 			backgroundSize: 'cover',
 			animation: `${coverAnnimation} 5s both`,
+			backgroundColor: '#1A1C29',
+			[theme.breakpoints.down('md')]: {
+				// backgroundPosition: 'top',
+				backgroundSize: 'contain',
+				animation: `${coverAnnimationMD} 5s both`,
+			},
 		},
 		discoverButton: {
 			backgroundColor: '#485ad7',

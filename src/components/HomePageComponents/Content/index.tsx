@@ -11,19 +11,19 @@ const Content = (): JSX.Element => {
 	return (
 		<Grid container>
 			<Grid container justifyContent="space-between">
-				<Grid item container xs={3.8} style={{ height: '600px' }}>
+				<Grid item container md={3.8} style={{ height: '600px' }}>
 					<Grid className={classes.sec1} padding={3}>
 						<Grid className={classes.sec1Title}>اجهزة الكمبيوتر</Grid>
 						<Grid className={classes.sec1subTitle}>عرض لوقت محدود!</Grid>
 					</Grid>
 				</Grid>
-				<Grid item container xs={3.8} style={{ height: '600px' }}>
+				<Grid item container md={3.8} style={{ height: '600px' }}>
 					<Grid className={classes.sec2} padding={3}>
 						<Grid className={classes.sec1Title}>اجهزة الكمبيوتر</Grid>
 						<Grid className={classes.sec1subTitle}>عرض لوقت محدود!</Grid>
 					</Grid>
 				</Grid>
-				<Grid item container xs={3.8} style={{ height: '600px' }}>
+				<Grid item container md={3.8} style={{ height: '600px' }}>
 					<Grid className={classes.sec3} padding={3}>
 						<Grid className={classes.sec1Title}>اجهزة الكمبيوتر</Grid>
 						<Grid className={classes.sec1subTitle}>عرض لوقت محدود!</Grid>
@@ -44,16 +44,16 @@ const Content = (): JSX.Element => {
 					<Button className={classes.discoverButton}>اكتشف الان</Button>
 				</Grid>
 			</Grid>
-			<Grid container>
+			<Grid container flexDirection={{ md: 'row', xs: 'column-reverse' }}>
 				<Grid item xs={6.5}>
 					<img src={cover2} alt="ACCESSORIES" />
 				</Grid>
-				<Grid item container xs={3.5} alignItems="center" justifyContent="center">
+				<Grid item container md={3.5} alignItems="center" justifyContent="center">
 					<Grid item xs={12}>
 						<Typography variant="body2" fontWeight="600" paddingY={2} textTransform="uppercase">
 							سماعات رأس رائعة
 						</Typography>
-						<Typography variant="h4" paddingBottom={2}>
+						<Typography variant="h5" paddingBottom={2}>
 							ابحث عن الصوت الخاص بك!
 						</Typography>
 						<Typography variant="body1" paddingBottom={2} color="#797b7e">
@@ -64,22 +64,21 @@ const Content = (): JSX.Element => {
 				</Grid>
 			</Grid>
 			<Grid container justifyContent="space-between">
-				<Grid item container paddingTop={7} paddingBottom={3} xs={12} justifyContent="space-between">
-					<Typography variant="h4">On Sale</Typography>
-					<Button variant="text" className={classes.blackText}>
-						View All
-					</Button>
+				<Grid item container paddingTop={7} paddingBottom={3} xs={12} justifyContent="center">
+					<Typography variant="h3" className={classes.productsSecTitle}>
+						الاكثر مبيعا
+					</Typography>
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
 				</Grid>
-				<Grid item xs={2.8}>
+				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
 				</Grid>
 			</Grid>

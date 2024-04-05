@@ -5,7 +5,7 @@ import logo from '../../assets/logo3.png';
 
 const Logo = (): JSX.Element => {
 	return (
-		<Grid container alignItems="center" style={{ color: '#4759D7' }}>
+		<Grid container alignItems="center" style={{ color: '#4759D7', maxWidth: '200px' }}>
 			{/* <Typography variant="h5" fontWeight={600}>
 				mobile
 			</Typography> */}

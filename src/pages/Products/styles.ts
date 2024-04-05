@@ -5,8 +5,12 @@ const useStyles = makeStyles()((theme: Theme) => {
 	return {
 		pageContainer: {
 			width: '80%',
-			margin: '60px auto',
+			margin: '100px auto',
 			maxWidth: '1200px',
+			minWidth: '350px',
+			[theme.breakpoints.down('md')]: {
+				margin: '40px auto',
+			},
 		},
 		title: {
 			color: '#485ad7',
