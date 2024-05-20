@@ -66,7 +66,7 @@ const Products = (): JSX.Element => {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid item container xs={12} paddingY={3} justifyContent="space-between">
+				{/* <Grid item container xs={12} paddingY={3} justifyContent="space-between">
 					<Grid item md={2.8} paddingY={2}>
 						<ProductCard />
 					</Grid>
@@ -115,7 +115,7 @@ const Products = (): JSX.Element => {
 					<Grid item md={2.8} paddingY={2}>
 						<ProductCard />
 					</Grid>
-				</Grid>
+				</Grid> */}
 			</Grid>
 
 			<Menu

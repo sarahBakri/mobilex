@@ -4,9 +4,11 @@ import cover2 from '../../../assets/SEC4.png';
 import useStyles from './styles';
 import ProductCard from '../../ProductCard';
 import Logo from '../../Logo';
+import productsData from '../../../data/products.json';
 
 const Content = (): JSX.Element => {
 	const { classes } = useStyles();
+	console.log(productsData, 'productsData');
 
 	return (
 		<Grid container>
@@ -69,7 +71,13 @@ const Content = (): JSX.Element => {
 						الاكثر مبيعا
 					</Typography>
 				</Grid>
-				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
+				{productsData.map((item) => (
+					<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8} key={`products-${item.id}`}>
+						<ProductCard data={item} />
+					</Grid>
+				))}
+
+				{/* <Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
 				</Grid>
 				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
@@ -77,10 +85,7 @@ const Content = (): JSX.Element => {
 				</Grid>
 				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
 					<ProductCard />
-				</Grid>
-				<Grid item paddingY={{ md: 0, xs: 2 }} md={2.8}>
-					<ProductCard />
-				</Grid>
+				</Grid> */}
 			</Grid>
 		</Grid>
 	);

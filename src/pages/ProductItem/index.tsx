@@ -7,9 +7,9 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import useStyles from './styles';
 import WhiteHeart from '../../assets/heartWhite.png';
-import product1 from '../../assets/product1_img1.jpg';
-import product2 from '../../assets/product1_img2.jpg';
-import product3 from '../../assets/product1_img3.jpg';
+import product1 from '../../assets/products/mobiles/1/1.jpg';
+import product2 from '../../assets/products/mobiles/1/2.png';
+import product3 from '../../assets/products/mobiles/1/3.jpg';
 import product4 from '../../assets/product1_img4.jpg';
 import ProductImages from '../../components/ProductImages';
 import ProductCard from '../../components/ProductCard';
@@ -30,10 +30,17 @@ const ProductItem = (): JSX.Element => {
 	return (
 		<Grid container padding={4} className={classes.pageContainer}>
 			<Grid container>
-				<Grid item md={5} gap={4}>
-					<ProductImages productId="3" images={[product1, product2, product3, product4]} />
+				<Grid item md={5}>
+					<ProductImages
+						productId="3"
+						images={[
+							`/images/products/mobiles/1/1.jpg`,
+							'/images/products/mobiles/1/2.png',
+							'/images/products/mobiles/1/3.jpg',
+						]}
+					/>
 				</Grid>
-				<Grid item md={6.5}>
+				<Grid item md={6.5} paddingX={4}>
 					<Grid container>
 						<div className={classNames(classes.label, { [`${classes.inStock}`]: true })}>In Stock</div>
 					</Grid>
@@ -78,7 +85,7 @@ const ProductItem = (): JSX.Element => {
 				<Grid item container padding={3} xs={12} justifyContent="CENTER">
 					<Typography variant="h4">الاكثر مبيعا</Typography>
 				</Grid>
-				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
+				{/* <Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
 				</Grid>
 				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
@@ -89,7 +96,7 @@ const ProductItem = (): JSX.Element => {
 				</Grid>
 				<Grid item md={2.8} paddingY={{ md: 0, xs: 2 }}>
 					<ProductCard />
-				</Grid>
+				</Grid> */}
 			</Grid>
 		</Grid>
 	);

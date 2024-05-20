@@ -1,4 +1,5 @@
-import { Grid, IconButton, Typography } from '@mui/material';
+/* eslint-disable import/no-dynamic-require */
+import { Grid, IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -13,7 +14,7 @@ const ProductImages = ({ images, productId }: { images: string[]; productId: str
 		<Grid container item xs={12}>
 			<Grid item container xs={12} position="relative" boxShadow="1">
 				<img
-					src={images[currentImageIndex]}
+					src={`${process.env.PUBLIC_URL}${images[currentImageIndex]}`}
 					alt="productImage"
 					className={classes.currentImage}
 					style={{ width: '100%', maxHeight: '355px', objectFit: 'contain' }}
@@ -48,7 +49,11 @@ const ProductImages = ({ images, productId }: { images: string[]; productId: str
 						border={i === currentImageIndex ? 1 : 0}
 						boxShadow="1"
 					>
-						<img src={image} alt="productImage" style={{ width: '100%' }} />
+						<img
+							src={`${process.env.PUBLIC_URL}${image}`}
+							alt="productImage"
+							style={{ width: '100%', objectFit: 'cover', maxHeight: '120px' }}
+						/>
 					</Grid>
 				))}
 			</Grid>

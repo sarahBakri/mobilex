@@ -13,7 +13,19 @@ import product3 from '../../assets/product1_img3.jpg';
 import product4 from '../../assets/product1_img4.jpg';
 import ProductImages from '../ProductImages';
 
-const ProductCard = (): JSX.Element => {
+interface IProduct {
+	discount?: string;
+	new?: boolean;
+	images: string[];
+	id: number;
+	name: string;
+	description: string;
+	priceAfterPrice?: string;
+	price: string;
+	status: string;
+}
+
+const ProductCard = ({ data }: { data: IProduct }): JSX.Element => {
 	const { classes } = useStyles();
 	const [isOpen, setOpen] = React.useState(false);
 
@@ -30,9 +42,11 @@ const ProductCard = (): JSX.Element => {
 		<Grid container alignItems="center" position="relative" boxShadow={1}>
 			<Grid item container xs={12} justifyContent="space-between" position="absolute" zIndex={3} top={0}>
 				<Grid item>
-					<div className={classNames(classes.label, { [`${classes.discount}`]: true })}>-11%</div>
-					<div className={classNames(classes.label, { [`${classes.new}`]: true })}>New</div>
-					<div className={classNames(classes.label, { [`${classes.discount}`]: true })}>Sale</div>
+					{data.discount && (
+						<div className={classNames(classes.label, { [`${classes.discount}`]: true })}>{data.discount}</div>
+					)}
+					{data.new && <div className={classNames(classes.label, { [`${classes.new}`]: true })}>جديد </div>}
+					{data.discount && <div className={classNames(classes.label, { [`${classes.discount}`]: true })}>خصم</div>}
 				</Grid>
 				<Grid item>
 					<IconButton aria-label="wishList">
@@ -41,7 +55,7 @@ const ProductCard = (): JSX.Element => {
 				</Grid>
 			</Grid>
 			<Grid item container className={classes.cardContentWraper} position="relative">
-				<img src={product1} alt="productName" className={classes.img} />
+				<img src={`${process.env.PUBLIC_URL}${data.images[0]}`} alt="productName" className={classes.img} />
 				<Grid container position="absolute" bottom={0} zIndex={20}>
 					<Grid item container justifyContent="center" gap={2}>
 						<IconButton className="iconButton" onClick={handleClickOpen}>
@@ -50,7 +64,13 @@ const ProductCard = (): JSX.Element => {
 						<IconButton
 							className="iconButton"
 							onClick={() => {
-								window.open(`https://wa.me/+201113362532?text=${encodeURI('hello')}`, '_blank');
+								console.log(process.env, 'process.env');
+								window.open(
+									`https://wa.me/+201113362532?text=${encodeURI(
+										`برجاء اتمام الطلب لهذا المنتج ${process.env.PUBLIC_URL}/product/${data.id}`
+									)}`,
+									'_blank'
+								);
 							}}
 						>
 							<WhatsAppIcon htmlColor="white" />
@@ -65,13 +85,13 @@ const ProductCard = (): JSX.Element => {
 				paddingY={2}
 				className={classes.cardContainer}
 				onClick={() => {
-					navigate('/mobilex/product/1');
+					navigate(`/mobilex/product/${data.id}`);
 				}}
 			>
-				<div className={`${classes.textTruncate} ${classes.productName}`}>Galaxy Tab S3 9.7 Wifi Tablet (Black)</div>
+				<div className={`${classes.textTruncate} ${classes.productName}`}>{data.name}</div>
 				<Grid item container justifyContent="center" alignItems="center">
-					<div className={`${classes.price} ${classes.afterDicount}`}>$80</div>
-					<div className={`${classes.price} ${classes.beforeDiscount}`}>$90</div>
+					<div className={`${classes.price} ${classes.afterDicount}`}>{data.priceAfterPrice}</div>
+					<div className={`${classes.price} ${data.discount ? classes.beforeDiscount : ''}`}>{data.price}</div>
 				</Grid>
 			</Grid>
 
@@ -86,31 +106,49 @@ const ProductCard = (): JSX.Element => {
 				<DialogContent>
 					<Grid container gap={4}>
 						<Grid item md={5}>
-							<ProductImages productId="3" images={[product1, product2, product3, product4]} />
+							<ProductImages productId="3" images={data.images} />
 						</Grid>
 						<Grid item md={6.5}>
 							<Grid container>
-								<div className={classNames(classes.label, { [`${classes.inStock}`]: true })}>In Stock</div>
+								{data.status && (
+									<div
+										className={classNames(classes.label, {
+											[`${classes.inStock}`]: data.status === 'available',
+											[`${classes.discount}`]: data.status !== 'available',
+										})}
+									>
+										{data.status === 'available' ? 'متوفر' : 'غير متوفر'}
+									</div>
+								)}
 							</Grid>
 							<Grid container paddingY={2}>
-								<div className={classes.productNameQuickView}>S2 Smartwatch Silver</div>
+								<div className={classes.productNameQuickView}>{data.name}</div>
 							</Grid>
 							<Grid container paddingBottom={2}>
+								{data.discount && (
+									<div
+										className={classNames(classes.priceQuickView, {
+											[`${classes.priceAfterDiscountQuickView}`]: !!data.discount,
+										})}
+									>
+										{data.priceAfterPrice}
+									</div>
+								)}
 								<div
-									className={classNames(classes.priceQuickView, { [`${classes.priceAfterDiscountQuickView}`]: true })}
+									className={classNames(classes.priceQuickView, {
+										[`${classes.beforeDiscountQuickView}`]: !!data.discount,
+									})}
 								>
-									$200.00
+									{data.price}
 								</div>
-								<div className={classes.beforeDiscountQuickView}>$250.00</div>
-								<div className={`${classes.beforeDiscountQuickView} ${classes.discountValueQuickView}`}>
-									Save 11% OFF
-								</div>
+								{data.discount && (
+									<div className={`${classes.beforeDiscountQuickView} ${classes.discountValueQuickView}`}>
+										Save {data.discount} OFF
+									</div>
+								)}
 							</Grid>
 							<Grid container paddingY={2}>
-								<div className={`${classes.description}`}>
-									It is clear that our way of life must be as comfortable as possible Many of our clients were surprised
-									by the incredible assortment of products in our store. You know, we have m...
-								</div>
+								<div className={`${classes.description}`}>{data.description}</div>
 							</Grid>
 							<Grid container paddingY={4}>
 								<Grid item xs={12}>
@@ -126,7 +164,14 @@ const ProductCard = (): JSX.Element => {
 									</Button>
 								</Grid>
 								<Grid item xs={12} paddingY={3}>
-									<Button variant="text" fullWidth className={classes.textButton}>
+									<Button
+										variant="text"
+										fullWidth
+										className={classes.textButton}
+										onClick={() => {
+											navigate(`/mobilex/product/${data.id}`);
+										}}
+									>
 										عرض المعلومات الكاملة
 									</Button>
 								</Grid>
